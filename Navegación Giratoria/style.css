@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;      /* importamos la fuente Lato desde Fonts de Google */
+    background-color: #333;             /*  color de fondo del body */
+    color: #222;                          /* color de los textos principales */
+    overflow-x: hidden;                 /* evitamos que haya scroll horizontal en pantallas pequeñas */
+    margin: 0;                           /* eliminamos el margen superior y lateral para centrar todo el contenido */
+}
+
+.container {
+    background-color: #fafafa;             /* color de fondo para el container, se usará como contenedor principal*/
+    transform-origin: top left;            /* para poder utilizar las transformaciones con el contenedor principal */
+    transition: transform 0.5s linear;    /* animación para el movimiento suave al hacer hover sobre un elemento */
+    width: 100vw;                 /* ancho del contenedor, se ajusta al viewport (es decir, es responsivo)*/
+    min-height: 100vh;               /* altura mínima del contenedor, se ajusta al viewport */
+    padding: 50px;                 /* espacio entre el borde superior e inferior y el contenido */
+}
+
+.container.show-nav {
+    transform: rotate(-20deg);      /* rotamos el container para hacerlo desaparecer con animación */
+}
+
+.circle-container {
+    position: fixed;                 /* posicionamiento fijo para mantenerlo siempre visible */
+    top: -100px;  left:-100px;         /* posición negativa para que esté fuera de la vista  */
+}
+
+.circle {
+    background-color: #ff7979;        /* color de fondo del círculo */
+    height: 200px;                    /* altura del círculp */
+    width: 200px;                     /* anchura del círculo */
+    border-radius: 50%;                /* redondeado del borde del círculo */
+    position: relative;               /* permite posicionar elementos relativamente al círculo */
+    transition: transform 0.5s linear; /* propiedad de transición para darle movimiento al círculo */
+}
+
+.container.show-nav .circle {
+    transform: rotate(-70deg);        /* rotación del círculo cuando se muestra el menú */
+}
+
+.circle button {
+    cursor: pointer;                   /* cambio de cursor al pasar por encima del botón */
+    position: absolute;               /* posicionamiento absoluto para situarlo en cualquier parte del círculo */
+    top: 50%;                            /* centramos verticalmente el botón dentro del círculo */
+    left: 50%;                            /* centramos horizontalmente el botón dentro del círculo */
+    height: 100px;                        /* altura del botón */
+    background: transparent;               /* elimina el fondo del botón */
+    border: 0;                               /* eliminamos el borde del botón */
+    font-size: 26px;                        /* tamaño de letra del texto del botón */
+    color: #fff;                              /* color del texto del botón */
+}
+
+.circle button:focus {
+    outline: none;                           /* elimina el recuadro azul al enfocar en el botón */
+}
+
+.circle button#open {
+    left: 60%;                                 /* posicionamos el botón izquierdo a 60% de su posición original */
+}
+
+.circle button#close {
+    top: 60%;                                 /* posicionamos el botón de cerrar en el centro inferior del círculo */
+    transform: rotate(90deg);              /* rotamos el botón hacia arriba cuando está cerrado */
+    transform-origin: top left;              /* especificamos desde donde se va a rotar el botón */
+}
+
+.container.show-nav + nav li {
+    transform: translateX(0);              /* animación de los items de la lista al mostrarse el menú */
+    transition-delay: 0.3s ;              /* retraso entre cada item en la animación */
+}
+
+nav {
+    position: fixed;                        /* posicionamiento fijo de la barra de navegación */
+    bottom: 40px;                              /* espacio inferior entre la barra y el pie de página */
+    left: 0;   
+    z-index: 100;                              /* establecemos un valor superior a 0 para que el menú esté por debajo */
+}
+
+nav ul {
+    list-style-type: none;                 /* elimina las marcas de puntos que aparecen por defecto en las listas */
+    padding-left: 30px;                       /* espacio izquierdo para que queden bien separados los elementos de la lista*/
+}
+
+nav ul li {
+    text-transform: uppercase;              /* convertimos todo el texto a mayúsculas */
+    color: #fff;                              /* color del texto */
+    margin: 40px 0;                              /* separación vertical entre cada elemento de la lista */
+    transform: translateX(-100%);              /* posicionamiento inicial fuera de la pantalla (izquierda) */
+    transition: transform 0.4s ease-in;        /* definición de la animación */
+}
+
+nav ul li i {
+    font-size: 20px;                          /* tamaño de las iconos */
+    margin-right: 10px;                        /* separación entre el icono y el texto */
+}
+
+nav ul li + li {
+    margin-left: 15px;                          /* separación izquierda entre dos elementos consecutivos */
+    transform: translateX(-150%);                 /* posicionamiento inicial más alejada que el primero */
+}
+
+nav ul li + li + li {
+    margin-left: 30px;                          /* separación izquierda entre el tercero y el cuarto elemento */
+    transform: translateX(-200%);                 /* posicionamiento del último elemento más cerca que los otros */
+}
+
+nav a {
+    color: #fafafa;                             /* color del enlace */
+    text-decoration: none;                        /* eliminación de subrayado por defecto */
+    transition: all 0.5s;                          /* definición de la transición para todos los valores */
+}
+
+nav a:hover {
+    color: #ff7979;                                /* cambio de color al pasar el cursor sobre el enlace */
+    font-weight: bold;                                /* cambio de fuente a negrita cuando se pasa el cursor sobre el enlace*/
+}
+
+.content img {
+    max-width: 100%; /*  ajustamos el ancho máximo a 100% */
+}
+
+.content {
+    max-width: 1000px;    /* Establecemos un ancho máximo para el contenido, si es mayor se ajustará automáticamente */
+    margin: 50px auto;                             /* centramos horizontalmente el contenido */
+}
+
+.content h1 {
+    margin: 0;                                        /* eliminamos el margen superior */
+}
+
+.content small {
+    color: #555;                                       /* color del pie de foto */
+    font-style: italic;                                /* estilo de letra en itálica */
+}
+
+.content p {
+    color: #333;                                       /* color del parágrafo */
+    line-height: 1.5;                                    /* espacio entre líneas */
+}
