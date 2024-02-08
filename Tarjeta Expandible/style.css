@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+  }
+
+body{
+    font-family: 'Muli', sans-serif; /* Fuente que se usara en la vista */
+    display: flex;                 /*  Definir el modo flex de css, para poder trabajar con layouts flexibles */
+    align-items: center;          /*  Centramos los elementos verticalmente */
+    justify-content: center;       /*  Centramos los elementos horizontalmente */
+    height: 100vh;                 /*   Alto de la ventana del navegador */
+    overflow: hidden;          /*  Evitamos que el scroll salga por fuera de la pantalla */
+    margin: 0;                     /*  Quitamos las margenes predeterminadas */
+}
+
+.container {
+    display: flex;                  /*  Mostrar los elementos como una fila */
+    width: 90vw;                    /*  Ancho relativo a la anchura total de la ventana (90%)*/
+
+}
+
+.panel {
+    background-size: cover;           /*  La imagen debe cubrir todo el panel */
+    background-position: center;      /*  Posicionar la imagen al centro del panel */
+    background-repeat: no-repeat;     /*  No repetir la imagen si es posible evitarlo */
+    height: 80vh;                     /*  Altura relativa a la altura total de la ventana (80vmin)*/
+    border-radius: 50px;              /*  Redondeado de los bordes del panel */
+    color: #fff;                    /*  Color del texto */
+    cursor: pointer;                  /*  Cursor personalizado para el mouse sobre el panel */
+    flex: 0.5;                        /*  Asignamos un peso a cada panel, para que ocupe el  50% de ancho */
+    margin: 10px;                     /*  Espaciamiento entre los paneles */
+    position: relative;               /*  Permite posicionar absolutamente los hijos relativos a este padre */
+    -webkit-transition: all 700ms ease-in; /*  Transición animada para todos los cambios */
+}
+.panel h3 {
+    font-size: 24px;                 /*  Tamaño de la fuente del titulo */
+    position: absolute;              /*  El título queda absolutamente posicionado */
+    bottom: 20px;                    /*  Distancia inferior al borde inferior del panel */
+    left: 20px;                      /*  Distancia izquierda al borde izquierdo del panel */
+    margin: 0;                       /*  Quitamos las margens predeterminadas */
+    opacity: 0;                       /*  Opacidad inicial del titulo */
+}
+
+.panel.active{
+    flex: 5;                          /*  Peso del panel activo, lo coloca más grande y visible */
+}
+
+.panel.active h3{
+    opacity: 1;                            /*  Opacidad del titulo en el panel activo */
+    transition: opacity 0.3s ease-in 0.4s; /*  Transición animada para mostrar el titulo gradualmente */
+}
+
+@media(max-width: 480px) {                /*  Estilos para resoluciones pequeñas */
+    .container{
+        width: 100vw;                          /*  Ancho relativo a la anchura total de la ventana (10%) */
+    }
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) { 
+        display: none;                         /*  Oculta los dos últimos paneles en  dispositivos móviles */
+    }
+} 

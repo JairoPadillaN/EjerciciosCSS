@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+  --line-border-fill: #3498db; 
+  --line-border-empty: #383838;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+background-color: #1f1f1f;                  /* Establecemos el color de fondo */
+font-family: 'Muli', sans-serif;              /*  Establecemos la fuente a utilizar */
+display: flex;                                 /* Definimos que es un contenedor flexible */
+align-items: center;                            /* Centramos los elementos verticalmente */
+justify-content: center;                         /* Centramos los elementos horizontalmente */
+height: 100vh;                                    /* Establecemos una altura mínima del viewport para que ocupe todo el espacio disponible en alto*/
+overflow: hidden;                                 /* Evitamos que se muestren las barras de desplazamiento en caso*/
+margin: 0;                                       /* Quitamos las margenes por defecto */
+}
+
+.container {
+    text-align: center;                            /* Alineamos el texto al centro */
+}
+
+.progress-container {
+    display: flex;                                  /* Convertimos en contenedor flexible */
+    justify-content: space-between;                 /* Espaciamiento entre los elementos */
+    position: relative;                             /* Posicion absoluta para poder agregar el cuadrado superior */
+    margin-bottom: 30px;                            /* Agregamos espacio inferior */
+    max-width: 100%;                                /* Establecemos una anchura máxima del contenedor */
+    width: 350px;                                   /* Establecemos una anchura fija para el contenedor */
+}
+
+.progress-container::before {
+  content: ''; 
+  background-color: var(--line-border-empty);     /* Establecemos el color de la línea vacía */
+  position: absolute;                             /*  Posicion absoluta para quitarla del flujo normal del documento */
+  top: 50%; 
+    left: 0;
+    transform: translateY(-50%);                     /* Centralizamos la barra vacía con respecto a su elemento padre */
+    height: 4px;                                    /* Altura de la barra vacía */
+    width: 100%;                                    /* Anchura de la barra vacía */
+    z-index:  -1;                                   /* Colocamos detrás de todo lo demás */
+}
+
+.progress {
+    background-color: var(--line-border-fill);          /* Color de relleno de la barra */
+    position: absolute;                                 /*  Posicion absoluta para poder movernos dentro del container */
+    top: 50%;                                           /*  Posicionamos la barra en el medio vertical */
+    left: 0;                                            /* posicionamos  la barra desde el principio */
+    transform: translateY(-50%);                        /* Ajustamos la posición de la barra hacia abajo */
+    height: 4px;                                        /* Altura de la barra */
+    width: 0%;
+    z-index: -1;                                         /* La coloco debajo de la barra vacia */
+    transition: 0.4s ease;                                /* Establecemos la transición con animación suave */
+}
+
+.circle {
+  background-color: #1f1f1f;                              /* Color de fondo del círculo */
+  color: #e2e2e2;                                           /* Color del texto del círculo */
+  border-radius: 50%;                                         /* Creamos un borde redondeado*/
+  height: 30px;                                                /* Altura del círculo */
+  width: 30px;                                                   /* Anchura del círculp */
+  display: flex; 
+  align-items: center;                                        /* Centramos el contenido verticalmente */
+  justify-content: center;                                      /* Centramos el contenido horizontalmente */
+  border: 3px solid var(--line-border-empty);                        /* Establecemos las propiedades de la esquina y el grosor*/
+  transition: 0.4s ease;                                        /* Establecemos la transición */
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);                        /* Cambiamos el color de la esquina del círculo cuando esté activo*/
+}
+
+.btn {
+  background-color: var(--line-border-fill);                /* Color de fondo del botón */
+  color: #fff;                                                /* Color del texto del botón */
+  border: 0;                                                      /* Eliminamos el borde del botón */
+  border-radius: 6px;                                              /* Creamos un borde redondeado */
+  cursor: pointer;                                                /* Establecemos el puntero del mouse */
+  font-family: inherit;                                              /* Heredamos la fuente del body */
+  padding: 8px 30px;                                                /* Espaciamiento interno del botón */
+  margin: 5px;                                                        /* Espacio alrededor del botón */
+  font-size: 14px;                                                    /* Tamaño de la letra */
+}
+
+.btn:active {
+  transform: scale(0.98);                                        /* Reducimos el tamaño del botón mientras se pulsa */
+}
+
+.btn:focus {
+  outline: 0;                                                        /* Quitamos el contorno del botón */
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);                /* Cambiamos el color de fondo cuando este desactivado */
+  cursor: not-allowed;                                              /* Cambiamos el cursor al pasar por encima */
+}
