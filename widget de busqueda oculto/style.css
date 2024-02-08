@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(90deg, #7d5fff, #7158e2);             /*derfinimos  el gradiente de fondo*/
+    font-family: 'Roboto', sans-serif;                                          /* importamos  la fuente roboto para que sea utilizada en todo el proyecto*/
+    display: flex;                                                              /* ajustamos que todo este en una linea */
+    align-items: center;                                                        /* centramos verticalmente los elementos */
+    justify-content: center;                                                    /*centramos horizontalmetne los elemntos*/
+    height: 100vh;                                                              /*definimos la altura del viewport para que ocupe toda la pantalla*/
+    overflow: hidden;                                                           /*evitamos que se salga por las esquinas*/
+    margin: 0;                                                                  /*quitamos los margenes por defecto*/
+}
+
+.search {
+    position: relative;                                                         /*posicion absoluta y relativa*/
+    height: 50px;                                                               /*altura del contenedor*/
+}
+
+.search .input {
+    background-color: #fff;                                                   /*cambiamos el color de fondo*/
+    border: 0;                                                                  /*quitamos el borde*/
+    font-size: 18px;                                                            /*cambiamos el tamaño de letra*/
+    padding: 15px;                                                              /*agregamos un espacio alrededor del texto*/
+    height: 50px;                                                               /*altura del input*/
+    width: 50px;                                                                /*ancho del input*/
+    transition: width 0.3s ease;                                                /*animacion*/
+}
+
+.btn {
+    background-color: #fff;                                                   /*cambiamos el color del boton*/
+    border: 0;                                                                  /*quitamos el borde*/
+    cursor: pointer;                                                            /*asignamos el puntero*/
+    font-size: 24px;                                                            /*cambiamos el tamano de la fuente*/
+    position: absolute;                                                         /*colocamos el boton en posicion absoluta*/
+    top: 0;                                                                     /*mandamos arriba el boton*/
+    left: 0;                                                                    /*mandamos hacia la izquierda*/
+    height: 50px;                                                               /*ajustamos su altura*/
+    width: 50px;                                                                /*ajustamos su ancho*/
+    transition: transform 0.3s ease;                                            /*animacion*/
+}
+
+.btn:focus,  .input:focus {
+    outline: none;                                                              /*quitamos el focus*/
+}
+
+.search.active .input {
+    width: 200px;                                                               /*aumentamos el ancho cuando esta activo*/
+}
+
+.search.active .btn {
+    transform: translateX(198px);                                               /*movernos a la derecha*/
+}
