@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    background-color: #efedd6; /* establecemos el color del fondo */
+    font-family: 'Roboto', sans-serif;  /* Establezco la fuente a Roboto, si no se carga, pondremos una fuente por defecto*/
+    display: flex; /*  para que los elementos estén en una misma línea */
+    flex-direction: column;  /* por defecto es row, es la dirección de las cajas */
+    align-items: center;    /* centramos verticalmente al contenedor */
+    justify-content: center; /* centramos horizontalmente al contenedor */
+    margin: 0; /*  eliminamos los márgenes predeterminados */
+    overflow-x: hidden;    /* oculta scrollbar a la izquierda */
+}
+
+h1 {
+    margin: 10px;
+}
+
+.box {
+    background-color: steelblue;    /* Establecemos el color de fondo */
+    color: #fff;                    /* Establecemos el color del texto */
+    display: flex;                    /* Establecemos que se pueda redimensionar el div */
+    align-items: center;             /* Centramos verticalmente el texto y el botón dentro del div */
+    justify-content: center;         /* Centramos horizontalmente el texto y el boton dentro del div */
+    width: 400px;                   /* establecemos el tamaño */  
+    height: 200px;                  /*   altura del cuadro */
+    margin: 10px;                 /* Establecemos un margen entre los divs */
+    border-radius: 10px;             /* Creamos un borde redondeado con un radio de 10 píxeles */
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);  /* Establecemos sombra a la caja */
+    transform: translateX(400%);     /* Transformación para posicionarla fuera de la pantalla */
+    transition: transform 0.4s ease;  /* Establecemos la transición */
+}
+
+.box:nth-of-type(even){
+    transform: translateX(-400%); 
+}
+
+.box.show {
+    transform: translateX(0%);    /* La animación nos llevará a la posición original */
+}
+
+.box h2 {
+    font-size: 45px;
+}
