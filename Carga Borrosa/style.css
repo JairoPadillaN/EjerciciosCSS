@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif; /* Importamos la fuente de Google Font Ubuntu */
+    display: flex; /*  Definimos que el body estará en flex */
+    align-items: center;  /* Alinear los elementos verticalmente */
+    justify-content: center; /* Justificar los elementos horizontalmente */
+    height: 100vh;       /* Establecer una altura del 100% del viewport */
+    overflow: hidden;    /* Evitamos que se muestren scroll si no caben los componentes */
+    margin: 0;            /* Quitar margenes por defecto */
+}
+
+.bg {
+    background: url('https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+    no-repeat center center/cover;
+    position: absolute;    /* Posicion absoluta para poder utilizar z-index */
+    top:  -30px;            /* Añadir un espacio superior a las imágenes */
+    left: -30px;           /* Idem, pero lateral */
+    width:  calc(100vw + 60px);    /* La anchura será del 100% del vw y sumado  60px (para darle espacio)*/
+    height:calc(100vh + 60px);   /* La altura será del 100% del vh y sumada 60px (para darle espacio)*/
+    z-index:-1;          /* Colocamos detrás de todo lo demás */
+    filter: blur(0px);     /* Aplicamos un filtro de borrasso para darle un toque de realismo */
+}
+
+.loading-text {
+    font-size: 50px;
+    color: #fff;
