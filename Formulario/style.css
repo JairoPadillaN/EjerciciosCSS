@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    background-color: steelblue; /* establecemos el color de fondo */
+    color: #fff;  /* y el color del texto en blanco */
+    font-family: 'Muli', sans-serif;  /* le asignamos la fuente Muli, si no se carga, usa una fuente por defecto */
+    display: flex;    /* para que los elementos se distribuyan horizontalmente */
+    flex-direction: column;    /* por defecto, flex-direction es row (fila) */
+    align-items: center;     /* centramos verticalmente los elementos */
+    justify-content: center;    /* centramos horizontalmente los elementos */
+    height: 100vh;     /* para que la altura sea igual a la altura de la ventana visual del usuario */
+    overflow: hidden;    /* evitamos que haya scroll si no caben todos los elementos */
+    margin: 0;    /* eliminamos los márgenes predeterminados */
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.4);    /* ponemos un overlay transparente sobre todo el contenedor */
+    padding: 20px 40px;    /* agregamos un margen superior e inferior para separar los elementos */
+    border-radius: 5px;    /* redondeamos las esquinas del contenedor */
+}
+
+.container h1 {
+    text-decoration: none;    /* elimina las decoraciones de estilo bajo el texto */
+    color: lightblue;    /* cambiamos el color del texto a azul claro */
+}
+
+.container a {
+    text-decoration: none;    /* elimina las decoraciones de estilo bajo el enlace */
+    color: lightblue;    /* cambia el color del texto al hacer clic en él */
+}
+
+.btn {
+    cursor: pointer;    /* asignamos el puntero al ratón cuando pasamos por encima del botón */
+    display: inline-block;    /* hacemos que el botón tenga una anchura automática según su contenido */
+    width: 100%;    /* le damos una anchura total al botón */
+    background: lightblue;    /* establecemos el color de fondo como azul claro */
+    padding: 15px;     /* agregamos un espacio interno entre el borde del botón y su contenido */
+    font-family: inherit;    /* heredamos la fuente del elemento padre */
+    font-size: 16px;    /* fijamos la fuente y el tamaño de letra */
+    border: 0;     /* eliminamos el borde del botón */
+    border-radius: 5px;     /* redondeamos las esquinas del botón */
+}
+
+.btn:focus {
+    outline: 0; /*  eliminamos el borde visible al hacer clic en el botón */
+}
+
+.btn:active {
+    transform: scale(0.98);    /* reducimos ligeramente el tamaño del botón mientras se hace clic */
+}
+
+.text {
+    margin-top: 30px;    /* agregamos un margen superior para separar el título del input de texto */
+}
+
+.form-control {
+    position: relative;    /* posicionamiento relativo para poder aplicar estilos a los hijos */
+    margin: 20px 0 40px;    /* agregamos un margen inferior para dar espacio entre el formulario y el pie de página */
+    width: 300px;    /* le damos una anchura fija al campo de entrada de texto */
+}
+
+.form-control input {
+    background-color: transparent;    /* ponemos el color de fondo transparente para mostrar el diseño personalizado*/
+    border: 0;    /* eliminamos el borde del input de texto */
+    border-bottom: 2px #fff solid;    /* dibujamos un borde inferior transparente y white */
+    display: block;     /* forzamos al input a tener un alto determinado, en este caso 40px */
+    width: 100%;    /* le damos una anchura completa al input */
+    padding: 15px 0;    /* agregamos un espacio interno entre el borde inferior e inferior e inferior */
+    font-size: 18px;    /* fijamos el tamaño de letra */
+    color: #fff;     /* cambiamos el color del texto a blanco */
+}
+
+.form-control input:focus,
+.form-control input:valid {
+    outline: 0;     /* elimina el borde visible al hacer clic en el input */
+    border-bottom-color: lightblue;    /* cambio el color del borde inferior a azul claro cuando el input tiene datos */
+}
+
+.form-control label {
+    position: absolute;    /* posicionamiento absoluto para que quede superpuesto sobre el input */
+    top: 15px;     /* posicionamos el label 15px por encima del borde inferior del input */
+    left: 0;       /* posicionamos el label desde la izquierda con respecto al borde izquierdo del input */
+    pointer-events: none;    /* hacemos que el label no sea clickeable */
+}
+
+.form-control label span {
+    display: inline-block; /*  forzamos al span a tener un ancho determinado */
+    font-size: 18px;    /* igual que en el input de texto */
+    min-width: 5px;    /* establecemos una anchura mínima para que el label no se rebasque demasiado hacia la derecha */
+    transition: 0.3s cubic-bezier(0.68,-0.55,0.265,1.55);    /* animación suave para el cambio de opacidad */
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+    color: lightblue;    /* cuando esta todo correcto (input válido) pondremos el color azul claro */
+    transform: translateY(-30px);    /* movemos hacia arriba el label al mismo tiempo que bajamos el borde inferior*/
+}
