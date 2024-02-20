@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(161, 100, 223); /* establecemos el color de fondo de la pagina */
+    font-family: 'Poppins', sans-serif;  /* Establecemos que tipo de fuente queremos usar */
+    display: flex; /*  Definimos como se mostrara todo lo contenido en la pantalla */
+    flex-wrap: wrap;  /* Permite que los elementos se ajusten al ancho disponible */
+    align-items: center;  /* Centramos verticalmente todos los items */
+    justify-content: center;  /*Centramos horizontalmente todos los items*/
+    text-align: center;    /* Alineamos el texto al centro */
+    height: 100vh;          /* Pone la altura del body para que ocupe toda la ventana visual */
+    overflow: hidden;       /* Evitamos que haya scroll por si acaso hay mas contendio del que caben en la pantalla */
+    margin: 0;               /* Quitamos las margenes por defecto */
+}
+
+.btn {
+    background-color: rebeccapurple;    /* Color de fondo del boton */
+    border-radius: 5px;    /* Creamos un borde redondeado para darle una apariencia mas moderna al boton */
+    border: none;          /* Eliminamos el borde del boton */
+    color: #fff;            /* Color del texto del boton */
+    margin: 1rem;            /* Espaciamiento entre los botones */
+    padding: 1.5rem 3rem;    /* Espaciamiento interno y externo del texto del boton */
+    font-size: 1.2rem;       /* Tamaño de letra del texto del boton */
+    font-family: inherit;    /* Herdamos la familia de fuentes del cuerpo principal */
+    cursor: pointer;        /* Asignamos el puntero del mouse sobre el boton */
+}
+
+.btn:hover {
+    opacity: 0.9;            /* Cambiamos el transparencia del boton cuando pasamos el raton por encima */
+}
+
+.btn:focus {
+    outline: none;            /* Quitamos el contorno del boton cuando se enfoca */
+}
