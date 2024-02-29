@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli' sans-serif; /* importamos la fuente 'Muli' de Google */
+    background-color: #f0f0f0;  /* color de fondo gris claro */
+}
+
+h1 {
+    margin: 50px 0 30 px;    /* separación entre el título y los inputs */
+    text-align: center; /* Centramos el titulo  */
+}
+
+.faq-container {
+    max-width: 600px;    /* ancho máximo para que se vea bien en dispositivos móviles */
+    margin: 0 auto;       /* centramos el contenedor */
+}
+
+.faq {
+    background-color: transparent;    /* transparencia del contenedor */
+    border: 1px solid #9fa4a8;    /* borde grueso con un color gris */
+    border-radius: 10px;    /* redondeado de las esquinas */
+    margin: 20px 0;          /* separación entre preguntas */
+    padding: 30px;           /*  espacio interno entre las preguntas */
+    position: relative;      /* posicionamiento relativo para poder agregar estilos a la respuesta */
+    overflow: hidden;         /* ocultamos el contenido de la respuesta por defecto */
+    transition: 0.3s ease;  /* animacion de transicision */
+}
+
+.faq.active {
+    background-color: #fff;    /* cambio de color de fondo al hacer click sobre una pregunta */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq.active::before,
+.faq.active::after {
+  content: '\f075';    /* icono de menos (+) cuando no se encuentra activo */
+  font-family: 'Font Awesome 5 Free';    /* importamos el paquete completo de FontAwesome */
+  color: #2ecc71;      /* color verde para indicar que está activo */
+  font-size: 7rem;      /* tamaño de la letra */
+  position: absolute;    /* posicion absoluta para quitarlo del flujo normal del documento */
+  opacity: 0.2;         /* opacidad para darle un toque de sombra */
+  top: 20px;             /* distancia superior desde la parte superior del contenedor padre */
+  left: 20px;             /* distancia izquierda desde la parte izquierda del contenedor padre */
+  z-index: 0;             /* ponemos el índice Z a  cero para que esté detrás de todo */
+}
+
+.faq.active::before {
+    color: #3498db;    /* color azul para indicar que está activo (en este caso)*/
+    top: -10px;         /* distancia inferior desde la parte superior del contenedor padre */
+    left: -30px;         /* distancia derecha desde la parte derecha del contenedor padre */
+    transform: rotateY(180deg);    /* rotamos el símbolo hacia abajo */
+}
+
+.faq-title {
+    margin: 0 35px 0 0;      /* separación entre el título y los botones */
+}
+
+.faq-text {
+    display: none;         /* ocultamos el texto por defecto */
+    margin: 30px 0 0;        /* separación entre el titulo y el texto */
+}
+
+.faq.active .faq-text{
+    display: block;        /* mostramos el texto si la pregunta está activa */
+}
+
+.faq-toggle {
+    background-color: transparent;    /* hacemos transparente el botón*/
+    border: 0;               /* eliminamos el borde del botón */
+    border-radius: 50%;        /* redondeamos las esquinas del botón */
+    cursor: pointer;           /* cambiamos el cursor al pasar sobre él */
+    display: flex;             /* usamos Flexbox para centrar vertical y horizontalmente el contenido */
+    align-items: center;      /* centramos verticalmente el contenido*/
+    justify-content: center;    /* centramos horizontalmente el contenido*/
+    font-size: 16px;           /* tamaño de la fuente */
+    padding: 0;                 /* quitamos el relleno predeterminado */
+    position: absolute;        /* posicionamos absolutamente el botón en relación con su contenedor padre*/
+    top: 30px;                   /* distancia superior desde la parte superior del contenedor padre */
+    right: 30px;                 /* distancia derecha desde la parte derecha del contenedor padre */
+    height: 30px;                 /* altura del botón */
+    width: 30px;                 /* anchura del boton */
+  }
+
+  .faq-toggle:focus {
+    outline: 0;                 /* elimina el bordeFocus */
+  }
+  
+  .faq-toggle .fa-times {
+    display: none;               /* ocultamos el icono "X" por defecto */
+  }
+  
+  .faq.active .faq-toggle .fa-times {
+    color: #fff;                 /* color del icono "X" cuando la pregunta está cerrada */
+    display: block;               /* muestra el icono "X" cuando la pregunta está abierta */
+  }
+  
+  .faq.active .faq-toggle .fa-chevron-down {
+    display: none;                  /* ocultamos el icono "V" por defecto */
+  }
+  
+  .faq.active .faq-toggle {
+    background-color: #9fa4a8;      /* color de fondo cuando la pregunta está abierta */
+  }
